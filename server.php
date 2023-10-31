@@ -6,9 +6,8 @@ $json_string = file_get_contents('todolist.json');
 
 // una volta fatto ciò devo trasformare questa stringa in un array
 
-$list = json_decode($json_string);
+$list = json_decode($json_string,true);
 
-var_dump($list);
 
 // voglio che la lettura di questo file PHP si comporti come una file JSON
 // "trasformo" il file PHP in file JSON
