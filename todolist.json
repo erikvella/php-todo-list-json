@@ -1,0 +1,9 @@
+
+
+[
+  {"text":"Studiare PHP","done":true},
+  {"text":"Fare la spesa","done":true},
+  {"text":"Studiare VUE","done":false},
+  {"text":"Studiare JavaScript","done":false},
+  {"text":"Andare ad Amsterdam","done":false}
+]
