@@ -11,18 +11,18 @@ data(){
 },
 methods:{
   getList(){
-console.log('List');
 axios.get(this.apiUrl)
 .then(result =>{
   this.list = result.data;
-  console.log(result.data);
+
 })
 
   },
   addTask(){
     // il dato che invio al server,  per essere accettato da PHP come se fosse un form , devo crearlo dentro un FormData
     const data = new FormData();
-    data.append('todoItem' , this.newTask);
+    data.append('text' , this.newTask);
+
     axios.post(this.apiUrl , data)
     .then(result => {
       this.list = result.data;

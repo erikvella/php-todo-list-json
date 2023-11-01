@@ -8,13 +8,13 @@ $json_string = file_get_contents('todolist.json');
 
 $list = json_decode($json_string,true);
 // verifico se mi arriva in POST la viariabile del nuovo item
-if(isset($_POST['todoItem'])){
+if(isset($_POST['text'])){
   // aggiungo l'elemento alla lista 
-  $newItem = $_POST['todoItem'];
+  $newItem = $_POST['text'];
   $list[] = $newItem;
 
   // salvo il dato nel file JSON esterno
-  file_put_contents('todoItem.json' , json_encode($list));
+  file_put_contents('todolist.json' , json_encode($list));
 
 }
 // voglio che la lettura di questo file PHP si comporti come una file JSON
