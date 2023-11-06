@@ -28,8 +28,14 @@
 
       <ul class="list-group">
         <li 
+        
         v-for="(item , index) in list"
-        class="list-group-item">{{ item.text }}
+        :class="{'done' : item.done }"
+        @click="toggleDone(index)"
+        class="list-group-item d-flex justify-content-between ">{{ item.text }}
+        <button class="btn btn-danger">
+          <i @click.stop="removeTask(index)" class="fa-solid fa-trash-can"></i>
+        </button>
         </li>
         
       </ul>
