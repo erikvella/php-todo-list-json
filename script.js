@@ -34,11 +34,14 @@ axios.get(this.apiUrl)
 
   removeTask(index){
   const data = new FormData();
-  data.append('indexToDelete' , index);
-  axios.post(this.apiUrl, data)
-  .then(result =>{
-    this.list = result.data;
-  })
+  if(confirm('Sei sicuro di voler eliminare il task?')){
+    data.append('indexToDelete' , index);
+    axios.post(this.apiUrl, data)
+    .then(result =>{
+      this.list = result.data;
+    })
+  }
+
   },
 
 
