@@ -33,8 +33,10 @@
         :class="{'done' : item.done }"
         @click="toggleDone(index)"
         class="list-group-item d-flex justify-content-between ">{{ item.text }}
-        <button class="btn btn-danger">
-          <i @click.stop="removeTask(index)" class="fa-solid fa-trash-can"></i>
+        <button  v-if="item.done"
+         class="btn btn-danger">
+          <i 
+          @click.stop="removeTask(index)" class="fa-solid fa-trash-can"></i>
         </button>
         </li>
         
@@ -42,7 +44,8 @@
       <div class="input-group my-3">
         <input v-model.trim="newTask"
         type="text" class="form-control" placeholder="Inserisci un nuovo task">
-        <button @click="addTask" 
+        <button 
+        @click="addTask" 
         class="btn btn-outline-success" type="button">
         Invia</button>
       </div>

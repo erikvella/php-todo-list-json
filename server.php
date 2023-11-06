@@ -11,12 +11,23 @@ $list = json_decode($json_string,true);
 if(isset($_POST['todoItem'])){
   // aggiungo l'elemento alla lista 
   $newItem = $_POST['todoItem'];
-  $list[] = $newItem;
+  $newTask = [
+    'text' => $newItem,
+    'done' => false
+  ];
+  $list[] = $newTask;
 
   // salvo il dato nel file JSON esterno
   file_put_contents('todolist.json' , json_encode($list));
 
 }
+
+if(isset($_POST['indexToDelete'])){
+  $indexToDelete = $_POST['indexToDelete'];
+  array_splice($list , $indexToDelete , 1);
+  file_put_contents('todolist.json' , json_encode($list));
+}
+
 
 if(isset($_POST['indexToToggle'])){
   $indexToToggle = $_POST['indexToToggle'];
